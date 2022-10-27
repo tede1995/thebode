@@ -1,0 +1,220 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>TheBode Articles</title>
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  </head>
+  <body>
+
+
+    <!-- header -->
+    <header class="header-sticky header-light bg-white">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand" href="{% url 'main' %}">
+            <img class="navbar-logo navbar-logo-light" src="https://res.cloudinary.com/cloud-equity/image/upload/v1666645306/Thebode/Text_Logo_Combined_Light_yja9il.png" alt="Logo">
+            <img class="navbar-logo navbar-logo-dark" src="https://res.cloudinary.com/cloud-equity/image/upload/v1666645230/Thebode/Logo_Dark_c3vpyf.png" alt="Logo">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="burger"><span></span></span></button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav align-items-center mr-auto" style="text-transform:uppercase;font-weight: 500;>
+              <li class="nav-item">
+                <a class="nav-link" href="../../index.html" role="button">
+                  Properties
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../../index.html" role="button">
+                  Featured
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'articles' %}" role="button">
+                  Articles
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../../index.html" role="button">
+                  Store
+                </a>
+              </li>
+            </ul>
+
+            <ul class="navbar-nav align-items-center mr-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  My Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="../app/profile.html">Log In</a>
+                  <a class="dropdown-item" href="../app/connections.html">Create Account</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- header -->
+
+    <!-- hero -->
+    <section class="hero hero-with-header bg-light separator-bottom">
+      <div class="container">
+        <div class="row justify-content-center">
+        <div class="col text-center">
+            <h1>TheBode Articles</h1>
+          </div>
+        </div>
+      </div>    
+    </section>
+    <!-- / hero -->
+    
+    <!-- article grid -->
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8">
+            <ul class="masonry row gutter-2">
+              {% for post in posts %}
+              <li class="col-md-6">
+                <article class="tile">
+                  <div class="tile-image" style="background-image: url(../../assets/images/demo/image-1.jpg)"></div>
+                  <a href="" class="tile-content">
+                    <div class="tile-footer">
+                      <span class="eyebrow mb-1">Design</span>
+                      <h3>{{ post.title }}</h3>
+                      <h6 class="eyebrow mb-1">{{ post.date_posted|date:"d F Y" }}</h6>
+                    </div>
+                  </a>
+                </article>
+              </li>
+              {% endfor %}
+            </ul>
+          </div> 
+          <aside class="col-md-4 pl-md-4">
+            <div class="widget">
+              <span class="widget-title">Categories</span>
+              <div class="list-group list-group-categories">
+                <a href="" class="list-group-item d-flex justify-content-between align-items-center">
+                  Cras justo odio
+                  <span class="badge">14</span>
+                </a>
+                <a href="" class="list-group-item d-flex justify-content-between align-items-center">
+                  Dapibus ac facilisis in
+                  <span class="badge">2</span>
+                </a>
+                <a href="" class="list-group-item d-flex justify-content-between align-items-center">
+                  Morbi leo risus
+                  <span class="badge">1</span>
+                </a>
+              </div>
+            </div>
+            <div class="widget">
+              <span class="widget-title">Latest News</span>
+              <ul class="feed">
+                <li>
+                  <a href="" class="feed-item">
+                    <img src="../../assets/images/demo/image-1.jpg" alt="Image">
+                    <div class="feed-item-content">
+                      <h3>Top 10 most beautifull beaches of mediteranian sea</h3>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="" class="feed-item">
+                    <img src="../../assets/images/demo/image-2.jpg" alt="Image">
+                    <div class="feed-item-content">
+                      <h3>Amazing views of Paradise Bay</h3>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="" class="feed-item">
+                    <img src="../../assets/images/demo/image-3.jpg" alt="Image">
+                    <div class="feed-item-content">
+                      <h3>Amazing views of Paradise Bay</h3>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="" class="feed-item">
+                    <img src="../../assets/images/demo/image-4.jpg" alt="Image">
+                    <div class="feed-item-content">
+                      <h3>Amazing views of Paradise Bay</h3>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="widget">
+              <span class="widget-title">Tags</span>
+              <div class="tag-cloud">
+                <a href="">Design</a>
+                <a href="">Development</a>
+                <a href="">Travel</a>
+                <a href="">Web Design</a>
+                <a href="">Marketing</a>
+                <a href="">Research</a>
+                <a href="">Managment</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <!-- / article grid -->
+
+    <!-- footer -->
+    <footer class="bg-dark text-white">
+      <div class="container py-5">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-md-5 text-center text-md-left">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'main' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Featured</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Properties</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Store</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Careers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Legal Information</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-2 text-center">
+            <img class="logo-sm" src="https://res.cloudinary.com/cloud-equity/image/upload/v1666645306/Thebode/Text_Logo_Combined_Light_yja9il.png" alt="Logo">
+          </div>
+          <div class="col-md-5 text-center text-md-right">
+            <ul class="socials">
+              <li><a href="" class="icon-facebook fs-20"></a></li>
+              <li><a href="" class="icon-instagram fs-20"></a></li>
+              <li><a href="" class="icon-twitter fs-20"></a></li>
+              <li><a href="" class="icon-linkedin fs-20"></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- / footer -->
+
+    <script src="{% static 'js/vendor.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+  </body>
+</html>
+{% endblock content %}
